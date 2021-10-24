@@ -31,6 +31,7 @@ func main() {
 	fmt.Printf("name:%s", name)
 	fmt.Println(age) //Println 自动加换行符
 
+
 	//简短变量声明 := 只能在函数里面用
 	s3 := "hahha"
 	fmt.Print(s3)
