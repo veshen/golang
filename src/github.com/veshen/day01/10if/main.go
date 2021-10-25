@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 	//age := 19
 	//if age > 10 {
 	//	fmt.Print(age)
@@ -35,16 +35,13 @@ func main(){
 	//	fmt.Printf("%d %c\n",i,v)
 	//}
 
-	chengshu := 1
-
-	for start := 1; start < 10; start ++ {
-		for ;chengshu<=start;chengshu++ {
-			if chengshu==start {
-				fmt.Printf("%d * %d = %d\n",start,chengshu,chengshu*start)
-			}else{
-				fmt.Printf("%d * %d = %d ",start,chengshu,chengshu*start)
+	for start := 1; start < 10; start++ {
+		for end := 1; end <= start; end++ {
+			if start == end {
+				fmt.Printf("%d * %d = %d\n", start, end, start*end)
+			} else {
+				fmt.Printf("%d * %d = %d ", start, end, start*end)
 			}
 		}
-		chengshu = 1
 	}
 }
