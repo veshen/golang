@@ -1,17 +1,16 @@
 package main
 
-import "fmt"
-
-// Person type struct
+// Person type struct includes name age school and fa
 type Person struct {
-	Name string
-	Age  int
+    name string
+    age int
+    school string
+    fa *Person
 }
 
+
+
+
 func main() {
-	p1 := Person{
-		Name: "Veshen",
-		Age:  18,
-	}
-	fmt.Println(p1)
+
 }
