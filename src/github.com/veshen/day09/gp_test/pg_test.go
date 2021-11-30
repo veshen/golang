@@ -29,9 +29,9 @@ func (s Story) String() string {
 
 func ExampleDB_Model() {
 	db := pg.Connect(&pg.Options{
-		User: "postgres",
+		User:     "postgres",
 		Password: "test123456",
-		Addr: "127.0.0.1:5432",
+		Addr:     "127.0.0.1:5432",
 	})
 	defer db.Close()
 
@@ -116,6 +116,6 @@ func createSchema(db *pg.DB) error {
 	return nil
 }
 
-func main()  {
+func main() {
 	ExampleDB_Model()
 }

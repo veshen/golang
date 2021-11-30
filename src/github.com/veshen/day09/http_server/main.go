@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-pg/pg/v10"
 	"net/http"
+
+	"github.com/go-pg/pg/v10"
 )
 
 type User struct {
@@ -13,8 +14,8 @@ type User struct {
 }
 
 type Book struct {
-	id     int64
-	title  string
+	id    int64
+	title string
 }
 
 func (u User) String() string {
@@ -32,18 +33,17 @@ func (s Story) String() string {
 	return fmt.Sprintf("Story<%d %s %s>", s.Id, s.Title, s.Author)
 }
 
-
 func fn1(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("hello world"))
+	w.Write([]byte("hello world"))
 }
 
-func main()  {
+func main() {
 
 	fmt.Println("开始连接数据库")
 	db := pg.Connect(&pg.Options{
-		User: "postgres",
+		User:     "postgres",
 		Password: "test123456",
-		Addr: "localhost:5432",
+		Addr:     "localhost:5432",
 	})
 	_, err := db.ExecContext()
 	if err != nil {
@@ -59,8 +59,8 @@ func main()  {
 	book := new(Book)
 	err = db.Model(book).Where("title = ?", "测试").Select()
 	if err != nil {
-       fmt.Println(err)
-    }
+		fmt.Println(err)
+	}
 	fmt.Println(book)
 	//var book1 = &Book{
 	//	id:    2,
@@ -71,9 +71,9 @@ func main()  {
 	//	fmt.Println(err)
 	//}
 
-	http.HandleFunc("/api/1",fn1)
+	http.HandleFunc("/api/1", fn1)
 	err = http.ListenAndServe("127.0.0.1:9090", nil)
 	if err != nil {
-		return 
+		return
 	}
 }
